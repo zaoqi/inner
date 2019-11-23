@@ -7,7 +7,7 @@ qvm-prefs --set sys-usb virt_mode pv
 
 ## References
 
-[Running Qubes OS 4.0.1 under KVM](https://www.reddit.com/r/Qubes/comments/b5cgc4/running_qubes_os_401_under_kvm/)
+[Running Qubes OS 4.0.1 under KVM](http://web.archive.org/web/20191123124538/https://www.reddit.com/r/Qubes/comments/b5cgc4/running_qubes_os_401_under_kvm/)
 
 # Fedora
 
