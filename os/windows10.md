@@ -5,6 +5,6 @@
 
 # UNIX-like without Windows Subsystem for Linux
 
-package manager: ![scoop](https://scoop.sh/)
+package manager: ![scoop](https://scoop.sh/) ![choco](https://chocolatey.org/)
 
 ![Adding Git-Bash to the new Windows Terminal](http://web.archive.org/web/20191123144245/https://stackoverflow.com/questions/56839307/adding-git-bash-to-the-new-windows-terminal)
