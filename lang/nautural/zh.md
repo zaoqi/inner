@@ -225,4 +225,4 @@
 
 ## References
 
-![大陆台湾计算机术语比对](http://web.archive.org/web/20191123124311/https://www.cnblogs.com/zhangxinyan/p/3499547.html)
+[大陆台湾计算机术语比对](http://web.archive.org/web/20191123124311/https://www.cnblogs.com/zhangxinyan/p/3499547.html)
