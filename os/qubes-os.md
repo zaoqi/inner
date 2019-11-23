@@ -51,6 +51,27 @@ binds+=( '/etc/docker' )" | sudo tee /rw/config/qubes-bind-dirs.d/50_user_docker
 sudo /usr/lib/qubes/init/bind-dirs.sh
 ```
 
+## anbox(StandaloneVM)
+
+```
+sudo apt install snapd adb android-sdk-platform-tools-common
+sudo snap install --devmode --beta anbox
+echo deb http://ppa.launchpad.net/morphis/anbox-support/ubuntu disco main | sudo tee /etc/apt/sources.list.d/morphis-ubuntu-anbox-support.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 21C6044A875B67B7
+sudo apt update && sudo apt install anbox-modules-dkms
+
+## Upgrade system: ## sudo apt update && sudo apt full-upgrade && sudo apt autoremove && sudo apt clean && sudo snap refresh --beta --devmode anbox
+```
+
+## 麟卓
+
+```
+sudo apt update && sudo apt full-upgrade && sudo apt autoremove && sudo apt clean
+wget -O - https://liquidtelecom.dl.sourceforge.net/project/xdroid/2.7/xDroidInstall-x86_64-v2.7000-20190621155253.tar.gz | tar -xzv
+./xDroidInstall-x86_64/install.sh
+rm -fr xDroidInstall-x86_64
+```
+
 # Nix
 
 ```
@@ -61,3 +82,4 @@ sudo /usr/lib/qubes/init/bind-dirs.sh &&
 sudo chown -R user /nix &&
 curl https://nixos.org/nix/install | sh
 ```
+
