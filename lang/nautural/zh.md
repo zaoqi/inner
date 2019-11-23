@@ -222,3 +222,7 @@
 |vector|矢量|向量|
 |virtual function|virtual函数|virtual函式|
 |virtual machine|虚拟机|虛擬機器|
+
+## References
+
+![大陆台湾计算机术语比对](http://web.archive.org/web/20191123124311/https://www.cnblogs.com/zhangxinyan/p/3499547.html)
