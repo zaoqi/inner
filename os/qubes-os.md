@@ -83,3 +83,20 @@ sudo chown -R user /nix &&
 curl https://nixos.org/nix/install | sh
 ```
 
+# updating
+
+## dom0
+
+```
+sudo qubes-dom0-update --setopt=fastestmirror=True && sudo dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q)
+```
+or
+```
+sudo qubes-dom0-update --setopt=fastestmirror=True && sudo package-cleanup --oldkernels --count=1
+```
+
+## debian/ubuntu
+
+```
+sudo apt update && sudo apt full-upgrade && sudo apt autoremove && sudo apt clean
+```
