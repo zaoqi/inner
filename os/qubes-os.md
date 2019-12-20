@@ -9,7 +9,13 @@ qvm-prefs --set sys-usb virt_mode pv
 
 [Running Qubes OS 4.0.1 under KVM](http://web.archive.org/web/20191123124538/https://www.reddit.com/r/Qubes/comments/b5cgc4/running_qubes_os_401_under_kvm/)
 
-# Fedora
+# Fedora30
+
+## Remove unnecessary kernel in TemplateVM
+
+```
+sudo dnf remove kernel kernel-modules kernel-core kernel-debug-devel
+```
 
 ## ibus
 
@@ -105,4 +111,10 @@ sudo qubes-dom0-update --setopt=fastestmirror=True && sudo package-cleanup --old
 
 ```
 sudo apt update && sudo apt full-upgrade && sudo apt autoremove && sudo apt clean
+```
+
+## fedora
+
+```
+sudo dnf upgrade && sudo dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q)
 ```
