@@ -38,7 +38,13 @@ sudo systemctl start docker &&
 sudo /usr/lib/qubes/init/bind-dirs.sh
 ```
 
-# Debian
+# Debian10
+
+## Remove unnecessary kernel in TemplateVM
+
+```
+sudo apt purge cryptsetup-initramfs linux-image-4.19.0-6-amd64 linux-image-amd64 linux-headers-4.19.0-6-amd64 linux-headers-amd64 linux-headers-4.19.0-6-common linux-kbuild-4.19
+```
 
 ## Docker
 
