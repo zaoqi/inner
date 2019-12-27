@@ -14,7 +14,7 @@ qvm-prefs --set sys-usb virt_mode pv
 ## Remove unnecessary kernel in TemplateVM
 
 ```
-sudo dnf remove kernel kernel-modules kernel-core kernel-debug-devel
+sudo dnf remove kernel kernel-modules kernel-core kernel-debug-devel && sudo dnf install linux-firmware
 ```
 
 ## ibus
