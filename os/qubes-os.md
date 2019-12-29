@@ -34,7 +34,9 @@ ibus-setup
 ## fcitx-googlepinyin
 
 Share State Among Window = All
+
 Use System Tray Icon = false
+
 Status Panel Hide Mode = Hide
 
 ## Docker
