@@ -18,7 +18,7 @@ echo localhost > /etc/hostname
 nano /etc/hosts
 nano /etc/mkinitcpio.conf # HOOKS: insert `encrypt` and `lvm2` between `block` and `filesystems`; `keboard` before `encrypt` # BINARIES=("/usr/bin/btrfs")
 mkinitcpio -P
-passwd -l root
+passwd --lock root
 useradd -m user
 passwd user
 echo 'user ALL=(ALL) ALL' > /etc/sudoers.d/user
