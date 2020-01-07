@@ -78,6 +78,7 @@ systemctl enable NetworkManager
 ```
 pacman -S snap-pac rsync snapper
 snapper -c root create-config /
+snapper -c home create-config /home
 systemctl enable snapper-timeline.timer
 systemctl enable snapper-cleanup.timer
 cat << 'EOF' | tee /usr/share/libalpm/hooks/50_bootbackup.hook
