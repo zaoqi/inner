@@ -28,13 +28,9 @@ chmod 440 /etc/sudoers.d/user
 ```
 pacman -S intel-ucode
 ```
-[GRUB - ArchWiki](https://web.archive.org/web/20200107094103/https://wiki.archlinux.org/index.php/GRUB)
-```
-pacman -S grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-```
 [Btrfs subvolumes with swap](https://web.archive.org/web/20200107092204/https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Btrfs_subvolumes_with_swap)
 [LVM_on_LUKS](https://web.archive.org/web/20200107092204/https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS)
+[GRUB - ArchWiki](https://web.archive.org/web/20200107094103/https://wiki.archlinux.org/index.php/GRUB)
 ```
 fdisk /dev/sda # sda1: EFI(512 M, type: EFI System) sda2: rest
 mkfs.fat -F32 /dev/sda1
@@ -54,6 +50,11 @@ btrfs subvolume create /mnt/home
 ... # install Arch
 arch-chroot /mnt
 pacman -S lvm2 btrfs-progs
+
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+# ls -lh /dev/disk/by-uuid/ | grep sda2 | awk '{print $9;}' >> /etc/default/grub # For the convenience of editing
+nano /etc/default/grub # add the following kernel parameter: `cryptdevice=UUID=${device-UUID}:cryptlvm` # Ctrl+K: cut this line;Ctrl+U: paste
 ```
 
 # DE for touchscreen
