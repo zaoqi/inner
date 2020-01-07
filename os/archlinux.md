@@ -7,16 +7,18 @@ timedatectl set-ntp true
 pacstrap /mnt base base-devel nano linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
-ln -sf /usr/share/zoneinfo/< Region >/< City > /etc/localtime
+ln -sf /usr/share/zoneinfo/$Region/$City /etc/localtime
 hwclock --systohc
-locale-gen
 nano /etc/locale.gen # Uncomment `en_US.UTF-8 UTF-8` in /etc/locale.gen
 locale-gen
+echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 echo localhost > /etc/hostname
 # 127.0.0.1	localhost
 # ::1		localhost
 nano /etc/hosts
-passwd
+nano /etc/mkinitcpio.conf # HOOKS: insert `encrypt` and `lvm2` between `block` and `filesystems`; `keboard` before `encrypt` # BINARIES=("/usr/bin/btrfs")
+mkinitcpio -P
+passwd -l root
 useradd -m user
 passwd user
 echo 'user ALL=(ALL) ALL' > /etc/sudoers.d/user
@@ -46,6 +48,7 @@ mkswap /dev/CryptVolGrp/swap
 swapon /dev/CryptVolGrp/swap
 mkfs.btrfs /dev/CryptVolGrp/root
 mount -o compress=zstd /dev/CryptVolGrp/root /mnt
+mount /dev/sda1 /mnt/boot
 btrfs subvolume create /mnt/home
 ... # install Arch
 arch-chroot /mnt
