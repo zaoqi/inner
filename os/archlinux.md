@@ -1,4 +1,27 @@
 # Installation
+[Installation guide - ArchWiki](https://web.archive.org/web/20200107092239/https://wiki.archlinux.org/index.php/Installation_guide)
+```
+... # Connect to the internet
+timedatectl set-ntp true
+... # configure partitions
+pacstrap /mnt base base-devel nano linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/< Region >/< City > /etc/localtime
+hwclock --systohc
+locale-gen
+nano /etc/locale.gen # Uncomment `en_US.UTF-8 UTF-8` in /etc/locale.gen
+locale-gen
+echo localhost > /etc/hostname
+# 127.0.0.1	localhost
+# ::1		localhost
+nano /etc/hosts
+passwd
+useradd -m user
+passwd user
+echo 'user ALL=(ALL) ALL' > /etc/sudoers.d/user
+chmod 440 /etc/sudoers.d/user
+```
 
 [Btrfs subvolumes with swap](https://web.archive.org/web/20200107092204/https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Btrfs_subvolumes_with_swap)
 
