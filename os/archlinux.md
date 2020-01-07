@@ -47,6 +47,7 @@ swapon /dev/CryptVolGrp/swap
 mkfs.btrfs /dev/CryptVolGrp/root
 mount -o compress=zstd /dev/CryptVolGrp/root /mnt
 btrfs subvolume create /mnt/home
+... # install Arch
 ```
 
 # DE for touchscreen
