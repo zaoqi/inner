@@ -74,6 +74,21 @@ systemctl enable NetworkManager
 [GNOME - ArchWiki](https://web.archive.org/web/20200107092532/https://wiki.archlinux.org/index.php/GNOME)
 [GDM - ArchWiki](https://web.archive.org/web/20200107092753/https://wiki.archlinux.org/index.php/GDM)
 
+## CJK Fonts and IME
+
+```
+sudo pacman -S noto-fonts-cjk ibus-rime
+git clone --depth 1 https://github.com/rime/plum.git
+cd plum
+bash rime-install :preset
+cat << 'EOF' > ~/.config/ibus/rime/default.custom.yaml
+patch:
+  schema_list:
+    - schema: terra_pinyin
+EOF
+```
+
+
 # snapper
 ```
 pacman -S snap-pac rsync snapper
