@@ -22,7 +22,15 @@ passwd user
 echo 'user ALL=(ALL) ALL' > /etc/sudoers.d/user
 chmod 440 /etc/sudoers.d/user
 ```
-
+[Microcode - ArchWiki](https://web.archive.org/web/20200107093945/https://wiki.archlinux.org/index.php/Microcode)
+```
+pacman -S intel-ucode
+```
+[GRUB - ArchWiki](https://web.archive.org/web/20200107094103/https://wiki.archlinux.org/index.php/GRUB)
+```
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+```
 [Btrfs subvolumes with swap](https://web.archive.org/web/20200107092204/https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Btrfs_subvolumes_with_swap)
 
 # DE for touchscreen
