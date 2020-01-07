@@ -16,13 +16,14 @@ echo localhost > /etc/hostname
 # 127.0.0.1	localhost
 # ::1		localhost
 nano /etc/hosts
-nano /etc/mkinitcpio.conf # HOOKS: insert `encrypt` and `lvm2` between `block` and `filesystems`; `keboard` before `encrypt` # BINARIES=("/usr/bin/btrfs")
-mkinitcpio -P
 passwd --lock root
 useradd -m user
 passwd user
 echo 'user ALL=(ALL) ALL' > /etc/sudoers.d/user
 chmod 440 /etc/sudoers.d/user
+... # configure bootloader
+umount -R /mnt
+reboot
 ```
 [Microcode - ArchWiki](https://web.archive.org/web/20200107093945/https://wiki.archlinux.org/index.php/Microcode)
 ```
@@ -50,6 +51,8 @@ btrfs subvolume create /mnt/home
 ... # install Arch
 arch-chroot /mnt
 pacman -S lvm2 btrfs-progs
+nano /etc/mkinitcpio.conf # HOOKS: insert `encrypt` and `lvm2` between `block` and `filesystems`; `keboard` before `encrypt` # BINARIES=("/usr/bin/btrfs")
+mkinitcpio -P
 
 pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
