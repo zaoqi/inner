@@ -1,3 +1,7 @@
+# Installation
+
+[Btrfs subvolumes with swap](https://web.archive.org/web/20200107092204/https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Btrfs_subvolumes_with_swap)
+
 # snapper
 ```
 sudo pacman -S snap-pac rsync snapper
