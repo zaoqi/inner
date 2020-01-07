@@ -48,6 +48,7 @@ mkswap /dev/CryptVolGrp/swap
 swapon /dev/CryptVolGrp/swap
 mkfs.btrfs /dev/CryptVolGrp/root
 mount -o compress=zstd /dev/CryptVolGrp/root /mnt
+mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 btrfs subvolume create /mnt/home
 ... # install Arch
