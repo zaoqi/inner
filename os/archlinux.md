@@ -48,6 +48,8 @@ mkfs.btrfs /dev/CryptVolGrp/root
 mount -o compress=zstd /dev/CryptVolGrp/root /mnt
 btrfs subvolume create /mnt/home
 ... # install Arch
+arch-chroot /mnt
+pacman -S lvm2 btrfs-progs
 ```
 
 # DE for touchscreen
