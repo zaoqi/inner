@@ -32,6 +32,22 @@ pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 ```
 [Btrfs subvolumes with swap](https://web.archive.org/web/20200107092204/https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Btrfs_subvolumes_with_swap)
+[LVM_on_LUKS](https://web.archive.org/web/20200107092204/https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS)
+```
+fdisk /dev/sda # sda1: EFI(512 M) sda2: rest
+mkfs.fat -F32 /dev/sda1
+cryptsetup luksFormat /dev/sda2
+cryptsetup open /dev/sda2 cryptlvm
+pvcreate /dev/mapper/cryptlvm
+vgcreate CryptVolGrp /dev/mapper/cryptlvm
+lvcreate -L 8G CryptVolGrp -n swap
+lvcreate -l 100%FREE CryptVolGrp -n root
+mkswap /dev/CryptVolGrp/swap
+swapon /dev/CryptVolGrp/swap
+mkfs.btrfs /dev/CryptVolGrp/root
+mount -o compress=zstd /dev/CryptVolGrp/root /mnt
+btrfs subvolume create /mnt/home
+```
 
 # DE for touchscreen
 
