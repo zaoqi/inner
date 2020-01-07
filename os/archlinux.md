@@ -74,7 +74,7 @@ systemctl enable NetworkManager
 [GNOME - ArchWiki](https://web.archive.org/web/20200107092532/https://wiki.archlinux.org/index.php/GNOME)
 [GDM - ArchWiki](https://web.archive.org/web/20200107092753/https://wiki.archlinux.org/index.php/GDM)
 
-## CJK Fonts and IME
+# CJK Fonts and IME
 
 ```
 sudo pacman -S noto-fonts-cjk ibus-rime
