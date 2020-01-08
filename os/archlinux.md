@@ -64,7 +64,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # DE for touchscreen
 
 ```
-pacman -S gnome gnome-extra network-manager-applet
+pacman -S gnome
 systemctl enable gdm
 systemctl enable NetworkManager
 ```
@@ -88,6 +88,10 @@ patch:
 EOF
 ```
 
+# bluetooth
+```
+sudo systemctl enable bluetooth
+```
 
 # snapper
 ```
