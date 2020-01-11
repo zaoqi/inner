@@ -80,13 +80,14 @@ systemctl enable bluetooth
 
 ```
 sudo pacman -S noto-fonts-cjk ibus-rime
-git clone --depth 1 https://github.com/rime/plum.git
-cd plum
-bash rime-install :preset
 cat << 'EOF' > ~/.config/ibus/rime/default.custom.yaml
 patch:
   schema_list:
     - schema: terra_pinyin
+# Optional: install plum
+git clone --depth 1 https://github.com/rime/plum.git
+cd plum
+bash rime-install :preset
 EOF
 ```
 
