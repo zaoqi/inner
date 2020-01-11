@@ -4,7 +4,7 @@
 ... # Connect to the internet
 timedatectl set-ntp true
 ... # configure partitions
-pacstrap /mnt base base-devel nano linux linux-firmware
+pacstrap /mnt base base-devel nano linux-lts linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/$Region/$City /etc/localtime
@@ -64,7 +64,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # DE for touchscreen
 
 ```
-pacman -S gnome
+pacman -S gdm gnome-shell networkmanager nautilus gnome-terminal gedit gnome-system-monitor gnome-disk-utility
 systemctl enable gdm
 systemctl enable NetworkManager
 ```
