@@ -66,7 +66,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # DE for touchscreen
 
 ```
-pacman -S gdm gnome-shell gnome-control-center networkmanager nautilus gnome-terminal gedit gnome-system-monitor gnome-disk-utility
+pacman -S gdm gnome-shell gnome-control-center networkmanager nautilus sushi evince gnome-terminal gedit gnome-system-monitor gnome-disk-utility
 systemctl enable gdm
 systemctl enable NetworkManager
 ```
