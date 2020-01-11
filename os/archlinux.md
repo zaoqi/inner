@@ -1,9 +1,8 @@
 # Installation
 [Installation guide - ArchWiki](https://web.archive.org/web/20200107092239/https://wiki.archlinux.org/index.php/Installation_guide)
 ```
-... # Connect to the internet
+... # connect to the internet and configure partitions
 timedatectl set-ntp true
-... # configure partitions
 pacstrap /mnt base linux-lts linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
