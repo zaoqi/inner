@@ -63,10 +63,10 @@ nano /etc/default/grub # add the following kernel parameter: `cryptdevice=UUID=$
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-# DE for touchscreen
+# GNOME
 
 ```
-pacman -S gdm gnome-shell gnome-control-center networkmanager gnome-terminal gedit gnome-system-monitor gnome-disk-utility nautilus sushi evince file-roller
+pacman -S gdm xdg-user-dirs-gtk gnome-keyring gnome-shell gnome-control-center gnome-backgrounds networkmanager gnome-terminal gedit gnome-system-monitor gnome-disk-utility nautilus sushi evince file-roller
 systemctl enable gdm
 systemctl enable NetworkManager
 ```
