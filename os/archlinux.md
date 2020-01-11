@@ -84,11 +84,11 @@ cat << 'EOF' > ~/.config/ibus/rime/default.custom.yaml
 patch:
   schema_list:
     - schema: terra_pinyin
+EOF
 # Optional: install plum
 git clone --depth 1 https://github.com/rime/plum.git
 cd plum
 bash rime-install :preset
-EOF
 ```
 
 # snapper
