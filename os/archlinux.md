@@ -80,6 +80,7 @@ systemctl enable bluetooth
 
 ```
 sudo pacman -S noto-fonts-cjk ibus-rime
+mkdir -p ~/.config/ibus/rime
 cat << 'EOF' > ~/.config/ibus/rime/default.custom.yaml
 patch:
   schema_list:
