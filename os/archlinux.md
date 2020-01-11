@@ -3,7 +3,7 @@
 ```
 ... # connect to the internet and configure partitions
 timedatectl set-ntp true
-pacstrap /mnt base linux-lts linux-firmware
+pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 pacman -S nano
