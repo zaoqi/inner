@@ -66,7 +66,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # GNOME
 
 ```
-pacman -S gdm xdg-user-dirs-gtk gnome-keyring gnome-shell gnome-control-center gnome-backgrounds networkmanager gnome-terminal gedit gnome-system-monitor gnome-disk-utility nautilus sushi evince file-roller
+# base gnome packages
+pacman -S gdm xdg-user-dirs-gtk gnome-keyring gnome-shell gnome-control-center gnome-backgrounds networkmanager
+# applications
+pacman -S gnome-terminal gedit gnome-system-monitor gnome-disk-utility nautilus sushi evince file-roller
 systemctl enable gdm
 systemctl enable NetworkManager
 ```
