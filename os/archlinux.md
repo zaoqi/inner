@@ -17,7 +17,8 @@ echo localhost > /etc/hostname
 # 127.0.0.1	localhost
 # ::1		localhost
 nano /etc/hosts
-passwd --lock root
+passwd
+pacman -S sudo
 useradd -m user
 passwd user
 echo 'user ALL=(ALL) ALL' > /etc/sudoers.d/user
