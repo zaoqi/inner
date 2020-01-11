@@ -69,6 +69,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S gnome networkmanager
 systemctl enable gdm
 systemctl enable NetworkManager
+systemctl enable bluetooth
 ```
 
 ## References
@@ -88,11 +89,6 @@ patch:
   schema_list:
     - schema: terra_pinyin
 EOF
-```
-
-# bluetooth
-```
-sudo systemctl enable bluetooth
 ```
 
 # snapper
