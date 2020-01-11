@@ -65,7 +65,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # GNOME
 
 ```
-pacman -S gnome networkmanager
+pacman -S gnome
 systemctl enable gdm
 systemctl enable NetworkManager
 systemctl enable bluetooth
