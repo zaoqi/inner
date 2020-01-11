@@ -36,7 +36,6 @@ pacman -S intel-ucode
 [GRUB - ArchWiki](https://web.archive.org/web/20200107094103/https://wiki.archlinux.org/index.php/GRUB)
 ```
 fdisk /dev/sda # sda1: EFI(512 M, type: EFI System) sda2: rest
-mkfs.fat -F32 /dev/sda1
 cryptsetup luksFormat /dev/sda2
 cryptsetup open /dev/sda2 cryptlvm
 pvcreate /dev/mapper/cryptlvm
@@ -48,6 +47,7 @@ swapon /dev/CryptVolGrp/swap
 mkfs.btrfs /dev/CryptVolGrp/root
 mount -o compress=zstd /dev/CryptVolGrp/root /mnt
 mkdir /mnt/boot
+mkfs.fat -F32 /dev/sda1
 mount /dev/sda1 /mnt/boot
 btrfs subvolume create /mnt/home
 ... # install Arch
