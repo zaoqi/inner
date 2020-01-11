@@ -4,9 +4,10 @@
 ... # Connect to the internet
 timedatectl set-ntp true
 ... # configure partitions
-pacstrap /mnt base base-devel nano linux-lts linux-firmware
+pacstrap /mnt base linux-lts linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
+pacman -S nano
 ln -sf /usr/share/zoneinfo/$Region/$City /etc/localtime
 hwclock --systohc
 nano /etc/locale.gen # Uncomment `en_US.UTF-8 UTF-8` in /etc/locale.gen
