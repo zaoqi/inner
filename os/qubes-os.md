@@ -124,5 +124,5 @@ sudo apt update && sudo apt full-upgrade && sudo apt autoremove && sudo apt clea
 ## fedora
 
 ```
-sudo dnf upgrade && sudo dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q) && sudo dnf clean all
+sudo dnf clean all && sudo dnf upgrade && sudo dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q) && sudo dnf clean all
 ```
