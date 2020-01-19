@@ -118,3 +118,19 @@ EOF
 ## References
 
 [Snapper - ArchWiki](https://web.archive.org/web/20200107091522/https://wiki.archlinux.org/index.php/Snapper)
+
+
+# fcitx-googlepinyin
+
+```
+sudo pacman -S fcitx-googlepinyin fcitx-configtool
+cat << 'EOF' > ~/.pam_environment
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+EOF
+```
+
+## References
+
+[Fcitx - ArchWiki](http://web.archive.org/web/20200119051506/https://wiki.archlinux.org/index.php/fcitx)
