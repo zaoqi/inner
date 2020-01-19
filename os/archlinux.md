@@ -123,7 +123,7 @@ EOF
 # fcitx-googlepinyin
 
 ```
-sudo pacman -S fcitx-googlepinyin fcitx-configtool
+sudo pacman -S fcitx-googlepinyin fcitx-configtool fcitx-gtk2 fcitx-gtk3
 cat << 'EOF' > ~/.pam_environment
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
