@@ -1,4 +1,4 @@
-# hardware without IOMMU
+# hardware without IOMMU (QubesOS R4.0)
 
 ```
 qvm-prefs --set sys-net virt_mode pv
@@ -108,12 +108,9 @@ curl https://nixos.org/nix/install | sh
 ## dom0
 
 ```
-sudo qubes-dom0-update --setopt=fastestmirror=True && sudo dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q)
+sudo qubes-dom0-update && sudo dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q)
 ```
-or
-```
-sudo qubes-dom0-update --setopt=fastestmirror=True && sudo package-cleanup --oldkernels --count=1
-```
+
 
 ## debian/ubuntu
 
