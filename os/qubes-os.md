@@ -33,7 +33,7 @@ ibus-setup
 
 ## fcitx-googlepinyin
 
-Share State Among Window = All
+Share State Among Window = No
 
 Use System Tray Icon = false
 
