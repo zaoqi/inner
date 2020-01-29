@@ -39,6 +39,16 @@ Use System Tray Icon = false
 
 Status Panel Hide Mode = Hide
 
+### archlinux
+
+```
+cat << 'EOF' > ~/.pam_environment
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+EOF
+```
+
 ## Docker
 
 ```
