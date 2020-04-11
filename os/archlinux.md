@@ -136,6 +136,7 @@ Operation = Install
 Operation = Remove
 Type = Package
 Target = linux*
+Target = ${PACKAGES SUCH AS grub}
 
 [Action]
 Depends = rsync
