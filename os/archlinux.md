@@ -62,6 +62,22 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 nano /etc/default/grub # add the following kernel parameter: `cryptdevice=UUID=${device-UUID}:cryptlvm` # Ctrl+K: cut this line;Ctrl+U: paste
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+or ...
+[systemd-boot - ArchWiki](https://web.archive.org/web/20200411100519/https://wiki.archlinux.org/index.php/Systemd-boot)
+```
+bootctl --path=/boot install
+cat << 'EOF' > /usr/share/libalpm/hooks/90_systemd-boot.hook
+[Trigger]
+Type = Package
+Operation = Upgrade
+Target = systemd
+
+[Action]
+Description = Upgrading systemd-boot...
+When = PostTransaction
+Exec = /usr/bin/bootctl update
+EOF
+```
 
 # GNOME
 
