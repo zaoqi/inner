@@ -34,7 +34,7 @@ pacman -S intel-ucode
 [LVM_on_LUKS](https://web.archive.org/web/20200107092204/https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS)
 ```
 fdisk /dev/sda # sda1: EFI(512 M, type: EFI System) sda2: rest
-cryptsetup luksFormat /dev/sda2
+cryptsetup luksFormat --label="arch_os" /dev/sda2
 cryptsetup open /dev/sda2 cryptlvm
 pvcreate /dev/mapper/cryptlvm
 vgcreate CryptVolGrp /dev/mapper/cryptlvm
@@ -59,7 +59,7 @@ mkinitcpio -P
 pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 # ls -lh /dev/disk/by-uuid/ | grep sda2 | awk '{print $9;}' >> /etc/default/grub # For the convenience of editing
-nano /etc/default/grub # add the following kernel parameter: `cryptdevice=UUID=${device-UUID}:cryptlvm` # Ctrl+K: cut this line;Ctrl+U: paste
+nano /etc/default/grub # add the following kernel parameter: `cryptdevice=UUID=${device-UUID}:cryptlvm` # Ctrl+K: cut this line;Ctrl+U: paste # or: `cryptdevice=LABEL=arch_os:cryptlvm`
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 or ...
@@ -76,6 +76,19 @@ Target = systemd
 Description = Upgrading systemd-boot...
 When = PostTransaction
 Exec = /usr/bin/bootctl update
+EOF
+cat << 'EOF' > /boot/loader/loader.conf
+timeout 3
+console-mode max
+default arch.conf
+editor yes
+EOF
+cat << 'EOF' > /boot/loader/entries/arch.conf
+title Arch Linux
+linux /vmlinuz-linux
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+options cryptdevice=LABEL=arch_os:cryptlvm root=/dev/CryptVolGrp/root rw
 EOF
 ```
 
