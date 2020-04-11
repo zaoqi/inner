@@ -13,9 +13,10 @@ nano /etc/locale.gen # Uncomment `en_US.UTF-8 UTF-8` in /etc/locale.gen
 locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 echo localhost > /etc/hostname
-# 127.0.0.1	localhost
-# ::1		localhost
-nano /etc/hosts
+cat << 'EOF' >> /etc/hosts
+127.0.0.1 localhost
+::1 localhost
+EOF
 passwd
 pacman -S sudo
 useradd -m user
