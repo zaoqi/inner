@@ -34,7 +34,7 @@ pacman -S intel-ucode
 [LVM_on_LUKS](https://web.archive.org/web/20200107092204/https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS)
 ```
 fdisk /dev/sda # sda1: EFI(512 M, type: EFI System) sda2: rest
-cryptsetup luksFormat --label="arch_os" /dev/sda2
+cryptsetup luksFormat --label=arch_os /dev/sda2
 cryptsetup open /dev/sda2 cryptlvm
 pvcreate /dev/mapper/cryptlvm
 vgcreate CryptVolGrp /dev/mapper/cryptlvm
