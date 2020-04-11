@@ -74,12 +74,12 @@ Operation = Upgrade
 Target = systemd
 
 [Action]
-Description = Upgrading systemd-boot...
+Description = Upgrading systemd-boot ...
 When = PostTransaction
 Exec = /usr/bin/bootctl update
 EOF
 cat << 'EOF' > /boot/loader/loader.conf
-timeout 3
+timeout 4
 console-mode max
 default arch.conf
 editor yes
