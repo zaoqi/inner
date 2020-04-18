@@ -67,7 +67,7 @@ or ...
 [systemd-boot - ArchWiki](https://web.archive.org/web/20200411100519/https://wiki.archlinux.org/index.php/Systemd-boot)
 ```
 bootctl --path=/boot install
-cat << 'EOF' > /usr/share/libalpm/hooks/90_systemd-boot.hook
+cat << 'EOF' > /usr/share/libalpm/hooks/90_USER_systemd-boot.hook
 [Trigger]
 Type = Package
 Operation = Upgrade
@@ -143,7 +143,7 @@ snapper -c root create-config /
 snapper -c home create-config /home
 systemctl enable snapper-timeline.timer
 systemctl enable snapper-cleanup.timer
-cat << 'EOF' | tee /usr/share/libalpm/hooks/50_bootbackup.hook
+cat << 'EOF' | tee /usr/share/libalpm/hooks/50_USER_bootbackup.hook
 [Trigger]
 Operation = Upgrade
 Operation = Install
