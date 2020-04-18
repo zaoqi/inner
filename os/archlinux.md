@@ -107,6 +107,19 @@ systemctl enable bluetooth
 [GNOME - ArchWiki](https://web.archive.org/web/20200107092532/https://wiki.archlinux.org/index.php/GNOME)
 [GDM - ArchWiki](https://web.archive.org/web/20200107092753/https://wiki.archlinux.org/index.php/GDM)
 
+# KDE
+
+```
+pacman -S plasma-meta plasma-wayland-session
+systemctl enable sddm
+systemctl enable NetworkManager
+systemctl enable bluetooth
+```
+
+## References
+
+[KDE - ArchWiki](https://web.archive.org/web/20200418061958/https://wiki.archlinux.org/index.php/KDE)
+
 # CJK Fonts and IME
 
 ```
