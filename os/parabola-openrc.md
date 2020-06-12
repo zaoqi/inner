@@ -10,7 +10,6 @@ genfstab -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 pacman -S nano
 ln -sf /usr/share/zoneinfo/$Region/$City /etc/localtime
-hwclock --systohc
 nano /etc/locale.gen # Uncomment `en_US.UTF-8 UTF-8` in /etc/locale.gen
 locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
