@@ -5,7 +5,7 @@ https://wiki.parabola.nu/Installation_Guide
 ... # connect to the internet and configure partitions
 pacman -Sy archlinux-keyring archlinuxarm-keyring parabola-keyring
 pacman -U https://www.parabola.nu/packages/core/i686/archlinux32-keyring-transition/download/
-pacstrap /mnt base elogind linux-libre-lts
+pacstrap /mnt base elogind linux-libre-lts linux-libre-firmware
 genfstab -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 pacman -S nano
