@@ -33,6 +33,7 @@ reboot
 # Partitions
 
 ## Utils
+
 https://wiki.parabola.nu/LVM
 ```
 modprobe dm-mod
@@ -41,6 +42,9 @@ vgchange -ay
 pacman -Sy cryptsetup
 ```
 
+## Main
+
+https://wiki.parabola.nu/OpenRC
 ```
 fdisk /dev/sda # sda1: EFI(512 M, type: EFI System) sda2: rest
 cryptsetup luksFormat --label=parabola_os /dev/sda2
@@ -83,6 +87,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # Gnome
 
+https://wiki.parabola.nu/OpenRC
+https://wiki.parabola.nu/GNOME
 ```
 pacman -S gnome openrc-desktop
 rc-update add NetworkManager elogind default
