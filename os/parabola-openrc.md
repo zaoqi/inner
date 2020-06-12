@@ -24,6 +24,7 @@ useradd -m user
 passwd user
 echo 'user ALL=(ALL) ALL' > /etc/sudoers.d/user
 chmod 440 /etc/sudoers.d/user
+passwd # root's password is "" by default!
 ... # configure bootloader
 umount -R /mnt
 reboot
