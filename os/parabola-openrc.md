@@ -67,6 +67,9 @@ arch-chroot /mnt
 pacman -S lvm2 btrfs-progs cryptsetup
 nano /etc/mkinitcpio.conf # HOOKS: insert `encrypt` and `lvm2` between `block` and `filesystems`; `keyboard` before `encrypt` # BINARIES=("/usr/bin/btrfs")
 mkinitcpio -P
+pacman -S lvm2-openrc cryptsetup-openrc
+rc-update add lvm boot
+rc-update add dmcrypt boot
 ```
 
 # Grub
@@ -76,4 +79,18 @@ pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 nano /etc/default/grub # add the following kernel parameter: `cryptdevice=LABEL=parabola_os:cryptlvm rootflags=subvol=@`
 grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+# Gnome
+
+```
+pacman -S gnome openrc-desktop
+rc-update add NetworkManager elogind default
+rc-update add elogind default
+```
+
+# Basic Gui Apps
+
+```
+pacman -S icecat xfce4-terminal
 ```
