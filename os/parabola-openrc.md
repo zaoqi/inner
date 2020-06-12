@@ -13,8 +13,11 @@ ln -sf /usr/share/zoneinfo/$Region/$City /etc/localtime
 nano /etc/locale.gen # Uncomment `en_US.UTF-8 UTF-8` in /etc/locale.gen
 locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
-echo 'hostname="myparabola"' > /etc/conf.d/hostname
-nano /etc/hosts
+#echo 'hostname="localhost"' > /etc/conf.d/hostname # by default
+cat << 'EOF' >> /etc/hosts
+127.0.0.1 localhost
+::1 localhost
+EOF
 nano /etc/pacman.conf # enable nonsystemd
 pacman -S sudo
 useradd -m user
