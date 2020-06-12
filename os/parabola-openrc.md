@@ -88,6 +88,8 @@ pacman -S gnome openrc-desktop
 rc-update add NetworkManager elogind default
 rc-update add elogind default
 rc-update add dbus default
+nano /etc/conf.d/xdm # DISPLAYMANAGER="gdm"
+rc-update add xdm default
 ```
 
 # Basic Gui Apps
