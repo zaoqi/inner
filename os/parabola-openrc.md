@@ -87,6 +87,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S gnome openrc-desktop
 rc-update add NetworkManager elogind default
 rc-update add elogind default
+rc-update add dbus default
 ```
 
 # Basic Gui Apps
