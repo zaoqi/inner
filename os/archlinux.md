@@ -45,6 +45,9 @@ mkswap /dev/CryptVolGrp/swap
 swapon /dev/CryptVolGrp/swap
 mkfs.btrfs /dev/CryptVolGrp/root
 mount -o compress=zstd /dev/CryptVolGrp/root /mnt
+btrfs subvolume create /mnt/@
+umount /mnt
+mount -o compress=zstd,subvol=@ /dev/CryptVolGrp/root /mnt
 mkdir /mnt/boot
 mkfs.fat -F32 /dev/sda1
 mount /dev/sda1 /mnt/boot
