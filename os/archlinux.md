@@ -92,7 +92,7 @@ title Arch Linux
 linux /vmlinuz-linux
 initrd /intel-ucode.img
 initrd /initramfs-linux.img
-options cryptdevice=LABEL=arch_os:cryptlvm root=/dev/CryptVolGrp/root rw
+options cryptdevice=LABEL=arch_os:cryptlvm root=/dev/CryptVolGrp/root rootflags=subvol=@ rw
 EOF
 ```
 
