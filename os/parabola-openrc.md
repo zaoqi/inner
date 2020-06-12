@@ -90,11 +90,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 https://wiki.parabola.nu/OpenRC
 https://wiki.parabola.nu/GNOME
 ```
-pacman -S gnome openrc-desktop
+pacman -S gnome openrc-desktop lxdm
 rc-update add NetworkManager elogind default
 rc-update add elogind default
 rc-update add dbus default
-nano /etc/conf.d/xdm # DISPLAYMANAGER="gdm"
+nano /etc/conf.d/xdm # DISPLAYMANAGER="lxdm"
 rc-update add xdm default
 ```
 
