@@ -77,7 +77,7 @@ rc-update add dmcrypt boot
 ```
 pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-nano /etc/default/grub # add the following kernel parameter: `cryptdevice=LABEL=parabola_os:cryptlvm rootflags=subvol=@`
+nano /etc/default/grub # add the following kernel parameter: `cryptdevice=LABEL=parabola_os:cryptlvm`
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
