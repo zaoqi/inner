@@ -49,7 +49,8 @@ btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/home
 umount /mnt
 mount -o compress=zstd,subvol=@ /dev/CryptVolGrp/root /mnt
-mount -o compress=zstd,subvol=home /dev/CryptVolGrp/root /mnt/home
+mkdir /mnt/home
+mount -o compress=zstd,subvol=@home /dev/CryptVolGrp/root /mnt/home
 mkdir /mnt/boot
 mkfs.fat -F32 /dev/sda1
 mount /dev/sda1 /mnt/boot
