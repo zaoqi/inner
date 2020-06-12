@@ -64,7 +64,7 @@ mkinitcpio -P
 pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 # ls -lh /dev/disk/by-uuid/ | grep sda2 | awk '{print $9;}' >> /etc/default/grub # For the convenience of editing
-nano /etc/default/grub # add the following kernel parameter: `cryptdevice=UUID=${device-UUID}:cryptlvm` # Ctrl+K: cut this line;Ctrl+U: paste # or: `cryptdevice=LABEL=arch_os:cryptlvm`
+nano /etc/default/grub # add the following kernel parameter: `cryptdevice=UUID=${device-UUID}:cryptlvm rootflags=subvol=@` # Ctrl+K: cut this line;Ctrl+U: paste # or: `cryptdevice=LABEL=arch_os:cryptlvm rootflags=subvol=@`
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 or ...
