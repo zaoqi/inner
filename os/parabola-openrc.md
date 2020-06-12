@@ -66,7 +66,7 @@ mount /dev/sda1 /mnt/boot
 arch-chroot /mnt
 pacman -S lvm2 btrfs-progs
 nano /etc/mkinitcpio.conf # HOOKS: insert `encrypt` and `lvm2` between `block` and `filesystems`; `keyboard` before `encrypt` # BINARIES=("/usr/bin/btrfs")
-mkinitcpio -p linux-libre
+mkinitcpio -P
 ```
 
 # Grub
