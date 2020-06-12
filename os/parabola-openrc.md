@@ -64,7 +64,7 @@ mkfs.fat -F32 /dev/sda1
 mount /dev/sda1 /mnt/boot
 ... # install parabola
 arch-chroot /mnt
-pacman -S lvm2 btrfs-progs
+pacman -S lvm2 btrfs-progs cryptsetup
 nano /etc/mkinitcpio.conf # HOOKS: insert `encrypt` and `lvm2` between `block` and `filesystems`; `keyboard` before `encrypt` # BINARIES=("/usr/bin/btrfs")
 mkinitcpio -P
 ```
