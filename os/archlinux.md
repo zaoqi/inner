@@ -47,10 +47,16 @@ mkfs.btrfs /dev/CryptVolGrp/root
 mount -o compress=zstd /dev/CryptVolGrp/root /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
+btrfs subvolume create /mnt/@snapshots
+btrfs subvolume create /mnt/@home@snapshots
 umount /mnt
 mount -o compress=zstd,subvol=@ /dev/CryptVolGrp/root /mnt
+mkdir /mnt/.snapshots
+mount -o compress=zstd,subvol=@snapshots /dev/CryptVolGrp/root /mnt/.snapshots
 mkdir /mnt/home
 mount -o compress=zstd,subvol=@home /dev/CryptVolGrp/root /mnt/home
+mkdir /mnt/home/.snapshots
+mount -o compress=zstd,subvol=@home@snapshots /dev/CryptVolGrp/root /mnt/home/.snapshots
 mkdir /mnt/boot
 mkfs.fat -F32 /dev/sda1
 mount /dev/sda1 /mnt/boot
