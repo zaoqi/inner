@@ -150,8 +150,18 @@ bash rime-install :preset
 # snapper
 ```
 pacman -S snap-pac rsync snapper
+umount /.snapshots
+rmdir /.snapshots
 snapper -c root create-config /
+rm -r /.snapshots
+mkdir /.snapshots
+mount /.snapshots
+umount /home/.snapshots
+rmdir /home/.snapshots
 snapper -c home create-config /home
+rm -r /home/.snapshots
+mkdir /home/.snapshots
+mount /home/.snapshots
 systemctl enable snapper-timeline.timer
 systemctl enable snapper-cleanup.timer
 cat << 'EOF' | tee /usr/share/libalpm/hooks/50_USER_bootbackup.hook
