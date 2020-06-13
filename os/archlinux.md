@@ -6,7 +6,7 @@ timedatectl set-ntp true
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
-pacman -S nano
+pacman -S nano man-db man-pages
 ln -sf /usr/share/zoneinfo/$Region/$City /etc/localtime
 hwclock --systohc
 nano /etc/locale.gen # Uncomment `en_US.UTF-8 UTF-8` in /etc/locale.gen
