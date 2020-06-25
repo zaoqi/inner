@@ -96,7 +96,7 @@ default arch.conf
 editor yes
 EOF
 cat << 'EOF' > /boot/loader/entries/arch.conf
-title Arch Linux
+title Arch
 linux /vmlinuz-linux
 initrd /intel-ucode.img
 initrd /initramfs-linux.img
