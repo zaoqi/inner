@@ -97,9 +97,9 @@ editor yes
 EOF
 cat << 'EOF' > /boot/loader/entries/arch.conf
 title Arch
-linux /vmlinuz-linux
+linux /vmlinuz-linux-lts
 initrd /intel-ucode.img
-initrd /initramfs-linux.img
+initrd /initramfs-linux-lts.img
 options cryptdevice=LABEL=arch_os:cryptlvm root=/dev/CryptVolGrp/root rootflags=subvol=@ rw
 EOF
 ```
